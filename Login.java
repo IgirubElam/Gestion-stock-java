@@ -22,13 +22,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Login extends javax.swing.JFrame {
     
-    private static ResourceBundle bundle = ResourceBundle.getBundle("seconnecter_" + GeStock.language);
+    private static ResourceBundle bundle = ResourceBundle.getBundle("modele.seconnecter_" + GeStock.language);
     
     String userName = bundle.getString("login.username");
     String pass = bundle.getString("login.password");
     String login = bundle.getString("login.login");
     String exit = bundle.getString("login.exit");
     String title = bundle.getString("login.title");
+    
+    String NomUtil = bundle.getString("seconnecter.nomUtilisateur");
+    String Mpasse = bundle.getString("seconnecter.motPasse");
+    String connect = bundle.getString("seconnecter.connection");
+    String quitt = bundle.getString("seconnecter.quitter");
+    String titre = bundle.getString("seconnecter.connecterTitre");
     
     String langue;
     Connection conn = null;
@@ -39,9 +45,7 @@ public class Login extends javax.swing.JFrame {
     JTable tbPro;
     DefaultTableModel model;
 
-    Login(String langue) {
-       this.langue = langue;
-    }
+    
     
     
     public void getConnection() {
@@ -69,12 +73,27 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         
+        // Ici je veux mettre la condition if qui m'aide a afficher ce que l'utilisateur a choisi
+        
+        //if()
         jLNomUtil.setText(userName);
         jLPasse.setText(pass);
         bLogin.setText(login);
         bExit.setText(exit);
         jLtitre.setText(title);
+        //else if
+        jLNomUtil.setText(NomUtil);
+        jLPasse.setText(Mpasse);
+        bLogin.setText(connect);
+        bExit.setText(quitt);
+        jLtitre.setText(titre);
+      
     }
+    public Login(String selectedLang) {
+        initComponents();
+        this.langue = selectedLang;
+    }
+    
     
     
     void userVerification(String username, String password) {
