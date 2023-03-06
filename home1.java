@@ -100,6 +100,7 @@ public class home1 extends javax.swing.JFrame {
         //Ouverture de l'interface de login avec la langue selectionnee
         Login log = new Login(langueC);
         log.setVisible(true);
+        dispose();
         }catch(Exception e) {
             e.printStackTrace();
         }
